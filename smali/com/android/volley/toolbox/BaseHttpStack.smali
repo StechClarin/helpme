@@ -1,21 +1,14 @@
-.class public abstract Lcom/android/volley/toolbox/BaseHttpStack;
-.super Ljava/lang/Object;
-.source "SourceFile"
+package com.android.volley.toolbox;
 
-# interfaces
-.implements Lcom/android/volley/toolbox/HttpStack;
+import com.android.volley.Request;
+import com.android.volley.toolbox.HttpResponse;
 
+import java.util.Map;
 
-# direct methods
-.method public constructor <init>()V
-    .locals 0
+public abstract class BaseHttpStack implements HttpStack {
+    public BaseHttpStack() {
+        super();
+    }
 
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
-
-
-# virtual methods
-.method public abstract executeRequest(Lcom/android/volley/Request;Ljava/util/Map;)Lcom/android/volley/toolbox/HttpResponse;
-.end method
+    public abstract HttpResponse executeRequest(Request<?> request, Map<String, String> additionalHeaders);
+}
